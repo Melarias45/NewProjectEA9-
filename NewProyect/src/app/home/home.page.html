@@ -26,6 +26,14 @@
           <p><strong>Date:</strong>{{imageData.date}}</p>
         </ion-card-content>
       </ion-card>
+
+
+
+      <ion-label position="floating">Enter a date</ion-label>
+      <!--<ion-datetime-button datetime="datetime"></ion-datetime-button>-->
+      <ion-button (click)="onClick()">Send</ion-button>
+      <!--<ion-datetime displayFormat="YYYY-MM-DD" [(ngModel)]="date"></ion-datetime>
+      <ion-input placeholder="Enter a date" [(ngModel)]="date"></ion-input>-->
     </ng-container>
 
     <ng-template #loading>
