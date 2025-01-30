@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NasaService } from '../nasa.service';
-import { IonDatetime, IonDatetimeButton, IonModal } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +10,7 @@ import { IonDatetime, IonDatetimeButton, IonModal } from '@ionic/angular/standal
 export class HomePage {
 
   imageData: any;
+  selectedDate: any;
 
   constructor(private nasaService: NasaService) { }
 
@@ -19,10 +19,18 @@ export class HomePage {
       this.imageData = data;
     });
   }
-  onClick() {
-    this.nasaService.getDateOftheDay('2021-08-10').subscribe((data) => {
+
+  ngOnInit2(date: Date) {
+    this.nasaService.getImageByDate(date).subscribe((data) => {
       this.imageData = data;
-    });
+    })
   }
 
+  onSubmit() {
+    if (this.selectedDate) {
+      this.ngOnInit2(this.selectedDate);
+    } else {
+      alert('Por favor, selecciona una fecha.');
+    }
+  }
 }

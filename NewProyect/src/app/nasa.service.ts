@@ -20,4 +20,8 @@ export class NasaService {
     return this.http.get(`${this.apiUrl}?api_key=${this.apiKey}&date=${date}`);
   }
 
+  getImageByDate(date: Date): Observable<any> {
+    return this.http.get(`${this.apiUrl}?api_key=${this.apiKey}&date=${date}`)
+  }
+
 }
